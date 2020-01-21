@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reactions test page</title>
+
+    <style>
+        #shape {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+
+<p>Your time: <span id="timeTaken"></span>></p>
+
+    <div id="shape">
+
+    </div>
+
+    <script>
+
+        var start = new Date().getTime();
+
+        function makeShapeAppear() {
+
+            document.getElementById("shape").style.display = "block";
+            start = new Date().getTime()
+
+        }
+
+        setTimeout(makeShapeAppear, 1000);
+
+        //Hide square on click and set end time
+        document.getElementById("shape").onclick = function () {
+
+            document.getElementById("shape").style.display = "none";
+
+            var end = new Date().getTime();
+            var timeTaken = (end - start)/1000;
+            document.getElementById("timeTaken").innerHTML = timeTaken + " s";
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>
