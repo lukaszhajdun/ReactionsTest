@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<p>Your time: <span id="timeTaken"></span>></p>
+<p>Your time: <span id="timeTaken"></span></p>
 
     <div id="shape">
 
@@ -33,7 +33,11 @@
 
         }
 
-        setTimeout(makeShapeAppear, 1000);
+        function appearAfterDelay() {
+            setTimeout(makeShapeAppear, Math.random() * 2000);
+        }
+
+        appearAfterDelay();
 
         //Hide square on click and set end time
         document.getElementById("shape").onclick = function () {
@@ -43,6 +47,7 @@
             var end = new Date().getTime();
             var timeTaken = (end - start)/1000;
             document.getElementById("timeTaken").innerHTML = timeTaken + " s";
+            appearAfterDelay();
 
         }
 
