@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Reactions test page</title>
+    <title>Reactions Time Page</title>
 
     <style>
+
+        body {
+            font-family: sans-serif;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
         #shape {
             width: 200px;
             height: 200px;
@@ -18,7 +27,11 @@
 </head>
 <body>
 
-<p>Your time: <span id="timeTaken"></span></p>
+    <h1>Test your reactions!</h1>
+
+    <p>Click on geometric figures as quickly as you can.</p>
+
+    <p class="bold">Your time: <span id="timeTaken"></span></p>
 
     <div id="shape">
 
@@ -41,15 +54,22 @@
 
             var top = Math.random() * 400;
             var left = Math.random() * 400;
-            var width = Math.random() * 300;
+            var width = Math.random() * 200 + 100;
 
+            if (Math.random() > 0.5) {
+                document.getElementById("shape").style.borderRadius = "50%";
+            } else {
+                document.getElementById("shape").style.borderRadius = "0%";
+
+            }
+
+            document.getElementById("shape").style.backgroundColor = colorGenerator();
             document.getElementById("shape").style.top = top + "px";
             document.getElementById("shape").style.left = left + "px";
             document.getElementById("shape").style.width = width + "px";
             document.getElementById("shape").style.height = width + "px";
-
-
             document.getElementById("shape").style.display = "block";
+
             start = new Date().getTime()
 
         }
